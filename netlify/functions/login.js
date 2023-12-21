@@ -36,11 +36,23 @@ exports.handler = async (event, context) => {
     const token = jwt.sign(payload, secretKey, option);
     return {
       statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*", // O un dominio específico como "https://tufrontend.com"
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Credentials": true, // Solo si necesitas credenciales como cookies
+      },
       body: JSON.stringify({ token }),
     };
   } else {
     return {
       statusCode: 403,
+      headers: {
+        "Access-Control-Allow-Origin": "*", // O un dominio específico como "https://tufrontend.com"
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Credentials": true, // Solo si necesitas credenciales como cookies
+      },
       body: "FORBIDDEN",
     };
   }
