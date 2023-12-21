@@ -1,0 +1,25 @@
+[
+    {
+        "idShift": "turno001",
+        "coordinatorName": "Carlos López",
+        "zone": "Zona Sur",
+        "group": "Equipo 1",
+        "date": "2023-12-17",
+        "hour": "9:00",
+        "evidencePhoto": ["foto001.jpg", "foto002.jpg"],
+        "observations": "Todo en orden, sin incidencias."
+    }
+]
+
+[
+    {
+    "fullName": "Pepito Perez",
+    "phoneNumbre": "3111111111",
+    "admin": "false",
+    "coordinator": "true",
+    "user": "pPerez1",
+    "password": "Perez1234"
+    }
+]
+
+
