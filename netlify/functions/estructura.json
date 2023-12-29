@@ -13,12 +13,14 @@
 
 [
     {
+    "id": 1,
     "fullName": "Pepito Perez",
     "phoneNumbre": "3111111111",
     "admin": "false",
     "coordinator": "true",
     "user": "pPerez1",
-    "password": "Perez1234"
+    "password": "Perez1234",
+    "status": true
     }
 ]
 

@@ -22,7 +22,6 @@ exports.handler = async (event, context) => {
 
   const decodedToken = await verifyJwt(token);
 
-  console.log("------>", decodedToken);
   if (!decodedToken.valid) {
     return {
       statusCode: 403,
@@ -44,6 +43,7 @@ exports.handler = async (event, context) => {
   }
 
   const body = JSON.parse(event.body);
+  body.status = "true";
   const collection = db.collection("users");
   const result = await collection.insertOne(body);
 

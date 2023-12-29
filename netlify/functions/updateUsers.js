@@ -8,8 +8,6 @@ exports.handler = async (event, context) => {
   const id = event.queryStringParameters;
 
   const token = event.headers.authorization;
-
-  console.log("---- TOKEN: ", token);
   if (!token) {
     return {
       statusCode: 403,
@@ -17,7 +15,7 @@ exports.handler = async (event, context) => {
     };
   }
 
-  if (httpMethod !== "DELETE") {
+  if (httpMethod !== "PUT") {
     return {
       statusCode: 405,
       body: "METHOD NOT ALLOWED",
@@ -46,10 +44,12 @@ exports.handler = async (event, context) => {
     console.log("This is an error: ", e);
   }
 
+  const body = JSON.parse(event.body);
+  delete body._id;
   const collection = db.collection("users");
   const result = await collection.findOneAndUpdate(
     { _id: new ObjectId(id) },
-    { $set: { status: "false" } },
+    { $set: body },
     { returnDocument: "after" }
   );
 
